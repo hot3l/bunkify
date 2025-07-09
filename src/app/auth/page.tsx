@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 // Add Google type to window
 declare global {
@@ -9,12 +9,10 @@ declare global {
 }
 
 export default function GoogleAuthPage() {
-  const [showGoogleSignIn, setShowGoogleSignIn] = useState(true);
   const googleButtonRef = useRef(null);
   const GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
 
   useEffect(() => {
-    if (!showGoogleSignIn) return;
     const script = document.createElement("script");
     script.src = "https://accounts.google.com/gsi/client";
     script.async = true;
@@ -22,13 +20,20 @@ export default function GoogleAuthPage() {
     document.body.appendChild(script);
 
     script.onload = () => {
-      if (window.google && window.google.accounts && window.google.accounts.id) {
-        window.google.accounts.id.initialize({
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      if (
+        window.google &&
+        (window.google as any).accounts &&
+        (window.google as any).accounts.id
+      ) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window.google as any).accounts.id.initialize({
           client_id: GOOGLE_CLIENT_ID,
           callback: handleCredentialResponse,
           scope: "profile email https://www.googleapis.com/auth/drive.appdata",
         });
-        window.google.accounts.id.renderButton(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window.google as any).accounts.id.renderButton(
           googleButtonRef.current,
           { theme: "outline", size: "large" }
         );
@@ -38,7 +43,7 @@ export default function GoogleAuthPage() {
       document.body.removeChild(script);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [showGoogleSignIn, GOOGLE_CLIENT_ID]);
+  }, [GOOGLE_CLIENT_ID]);
 
   function handleCredentialResponse(response: { credential: string }) {
     const userObject = parseJwt(response.credential);
@@ -55,7 +60,7 @@ export default function GoogleAuthPage() {
     if (!token) return {};
     try {
       return JSON.parse(atob(token.split(".")[1]));
-    } catch (e) {
+    } catch {
       return {};
     }
   }
