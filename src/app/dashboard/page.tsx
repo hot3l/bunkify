@@ -2,12 +2,17 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
+type User = {
+  name: string;
+  email: string;
+  picture: string;
+};
+
 export default function Dashboard() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
 
   useEffect(() => {
-    // Only run on client
     if (typeof window !== "undefined") {
       const userData = localStorage.getItem("user");
       if (!userData) {
@@ -23,7 +28,7 @@ export default function Dashboard() {
     router.replace("/");
   }
 
-  if (!user) return null; // Or a loading spinner
+  if (!user) return null;
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "100vh" }}>
