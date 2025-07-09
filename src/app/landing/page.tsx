@@ -124,8 +124,8 @@ export default function LandingPage() {
       const google = window.google as {
         accounts?: {
           id?: {
-            initialize: (options: any) => void;
-            renderButton: (element: HTMLElement | null, options: any) => void;
+            initialize: (options: unknown) => void;
+            renderButton: (element: HTMLElement | null, options: unknown) => void;
           };
         };
       };
