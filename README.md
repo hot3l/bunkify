@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bunkify
 
-## Getting Started
+A modern, student-focused attendance and bunk planner app. Plan smart. Bunk smarter.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
+- Effortless attendance tracking
+- AI-powered bunk planner
+- Private & secure (Google Drive integration)
+- Beautiful, responsive dark UI
+- Interactive onboarding and demo
+- 100% open source & Hacktoberfest-friendly
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌐 Live Demo
+Coming soon!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack & Dependencies
+- **Next.js** 15.3.5
+- **React** ^19.0.0
+- **Tailwind CSS** ^4
+- **Framer Motion** ^12.23.0
+- **TypeScript** ^5
+- **ESLint** ^9
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+See `package.json` for full details.
 
-## Learn More
+## 📦 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/hacknrollers/bunkify.git
+   cd bunkify
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+4. **Open [http://localhost:3000](http://localhost:3000) to view the app.**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🏷️ Contribution Guidelines
+- Use clear, meaningful commit messages.
+- Keep the code clean and responsive.
+- Run `npm run lint` before submitting.
+- Open an Issue before major changes (for discussion).
+- Respect open-source etiquette ✨
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for full details and the contribution flow!
 
-## Deploy on Vercel
+## 🌱 Hacktoberfest
+This repository has the [`hacknrollers/bunkify`](https://github.com/hacknrollers/bunkify) topic. Pull requests to this repo will count towards your Hacktoberfest goals ✅.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📄 License
+MIT
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
