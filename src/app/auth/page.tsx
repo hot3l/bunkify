@@ -13,7 +13,14 @@ export default function GoogleAuthPage() {
     document.body.appendChild(script);
 
     script.onload = () => {
-      const google = window.google as { accounts?: { id?: { initialize: Function; renderButton: Function } } };
+      const google = window.google as {
+        accounts?: {
+          id?: {
+            initialize: (options: any) => void;
+            renderButton: (element: HTMLElement | null, options: any) => void;
+          };
+        };
+      };
       if (
         google &&
         google.accounts &&
